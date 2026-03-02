@@ -1,0 +1,22 @@
+# PPC (Public Power Corporation) - Residential & Business Tariff Guide 2026
+
+## 1. Residential Tariff Plans
+* **MyHome Online**: A purely digital, fixed-rate plan. The energy charge is €0.125 per kWh regardless of consumption volume. There is no fixed monthly subscription fee. E-bill and direct debit via credit/debit card are mandatory.
+* **MyHome Basic**: A variable-rate plan tailored for standard household use. The base energy charge is €0.140 per kWh. A fixed monthly subscription fee of €2.00 applies. 
+* **MyHome Plus**: A premium fixed-rate plan offering peace of mind. The energy charge is €0.155 per kWh. It includes a €3.00 monthly subscription fee, but provides free emergency technical support for the household.
+* **MyHome Enter**: A 12-month fixed contract offering €0.135 per kWh with a €1.50 monthly fee. Early termination of this contract incurs a €20.00 penalty.
+
+## 2. Business Tariff Plans
+* **PPC Business 21**: Designed for small to medium enterprises. The daytime energy charge is €0.110 per kWh, and the nighttime charge is €0.095 per kWh. The fixed monthly fee is €5.00. 
+
+## 3. Discounts and State Subsidies (Valid for Q1 2026)
+* **Consistency Discount**: Customers on the "MyHome Basic" and "MyHome Enter" plans receive a 5% discount on their total energy charge if the previous bill was paid on or before the exact due date.
+* **TEM (Energy Transition Fund) Subsidy**: The Greek state provides a subsidy of €0.015 per kWh for all residential tariffs. This subsidy applies only to the first 500 kWh of consumption per month.
+* **Winter Heating Subsidy**: For the billing months of December, January, and February, residential customers receive an additional flat €10.00 discount on their total bill to offset winter heating costs.
+
+## 4. Explanation of Regulated Charges
+All electricity bills in Greece include regulated charges, which are passed directly to state operators. PPC does not profit from these charges.
+* **HEDNO (Distribution Network)**: Covers the maintenance and operation of the low and medium voltage network. Calculated based on both the agreed power capacity (kVA) and the actual kWh consumed.
+* **IPTO (Transmission System)**: Covers the high-voltage national grid infrastructure.
+* **YKO (Services of General Interest)**: A social charge that subsidizes electricity for non-interconnected Greek islands and vulnerable households on the Social Residential Tariff (KOT).
+* **ETMEAR**: The Special Duty for the Reduction of Greenhouse Gas Emissions. This charge strictly funds the development of Renewable Energy Sources (solar and wind) in Greece.

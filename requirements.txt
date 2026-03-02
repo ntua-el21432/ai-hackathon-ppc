@@ -1,0 +1,16 @@
+# the commented lines wll be used when we get the micrososft resources for the final project
+# azure-identity==1.15.0    
+# langchain-openai==0.1.1
+# azure-search-documents==11.0.0b1
+
+streamlit>=1.54.0
+pandas>=2.2.1
+python-dotenv>=1.0.1
+pydantic>=2.7.1
+langchain>=1.1.0
+langchain-community>=0.3.0
+langchain-chroma>=1.1.0      
+langchain-google-genai>=4.2.1 
+langsmith>=0.1.50
+pypdf>=4.1.0
+chromadb>=1.5.2              
