@@ -3,6 +3,7 @@
 import base64
 import pandas as pd
 import os
+import streamlit as st
 
 def encode_image_to_base64(image_bytes: bytes) -> str:
     """
@@ -11,24 +12,20 @@ def encode_image_to_base64(image_bytes: bytes) -> str:
     """
     return base64.b64encode(image_bytes).decode('utf-8')
 
-def load_mock_dwh(filepath: str = "data/mock_dwh.csv") -> pd.DataFrame:
+#@st.cache_data
+def load_mock_dwh():
     """
     Loads the mock Data Warehouse CSV into a Pandas DataFrame.
-    If the file doesn't exist yet, it returns a hardcoded fallback dataframe 
-    so your app doesn't crash during testing.
     """
-    if os.path.exists(filepath):
-        return pd.read_csv(filepath)
-    else:
-        # Fallback for immediate testing
-        print(f"⚠️ Warning: {filepath} not found. Using fallback mock data.")
-        return pd.DataFrame({
-            "customer_id": ["GR-99824", "GR-11111"], 
-            "name": ["Maria K.", "Nikos P."],
-            "active_tariff": ["MyHome Online", "MyHome Basic"],
-            "avg_kwh_6m": [320, 450],
-            "last_3_bills_total": [310.50, 420.00]
-        })
+    try:
+        return {
+            "context": pd.read_csv("data/Customer_Context.csv"),
+            "header": pd.read_csv("data/Billing_Header.csv"),
+            "lines": pd.read_csv("data/Billing_Lines.csv")
+        }
+    except Exception as e:
+        st.error(f"Error loading databases: {e}")
+        return None
 
 def format_currency(amount: float) -> str:
     """Formats a raw float into a clean Euro string for the UI."""

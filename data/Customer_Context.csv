@@ -1,0 +1,201 @@
+customer_id,contract_id,account_id,active_tariff,segment,region,avg_kwh_6m,last_3_bills_total
+CUST-0001,CONTR-582798,ACC-434626,ΔΕΗ myHome Online,residential,Κεντρική Μακεδονία,2914.21,295.06
+CUST-0002,CONTR-342412,ACC-833567,Ήρων Οικιακό Plus,residential,Νότιο Αιγαίο,2519.2,306.08
+CUST-0003,CONTR-176201,ACC-670069,Ήρων Οικιακό,residential,Αττική,2836.46,287.19
+CUST-0004,CONTR-812718,ACC-696283,Elpedison Home Plus,residential,Αττική,1353.53,137.04
+CUST-0005,CONTR-908862,ACC-885294,Protergia Home,residential,Αττική,2389.34,209.66
+CUST-0006,CONTR-890066,ACC-993156,NRG Οικιακό,residential,Αττική,1273.56,154.74
+CUST-0007,CONTR-484164,ACC-262184,Protergia Home Plus,residential,Κεντρική Μακεδονία,1346.86,154.55
+CUST-0008,CONTR-489380,ACC-575955,Protergia Home Plus,residential,Αττική,1293.3,122.22
+CUST-0009,CONTR-293835,ACC-275979,Zenith Οικιακό,residential,Θεσσαλία,2630.51,230.83
+CUST-0010,CONTR-250207,ACC-498737,ΕΛΤΑ Ενέργεια Οικιακό,residential,Δυτική Μακεδονία,2353.03,270.01
+CUST-0011,CONTR-454718,ACC-456345,ΕΛΤΑ Ενέργεια Οικιακό,residential,Κεντρική Μακεδονία,2510.01,237.2
+CUST-0012,CONTR-566680,ACC-495736,ΔΕΗ myHome Online,residential,Κρήτη,2329.53,251.59
+CUST-0013,CONTR-113732,ACC-696929,Zenith Οικιακό,residential,Αττική,1370.45,129.51
+CUST-0014,CONTR-839537,ACC-386039,Elpedison Home Basic,residential,Αττική,2076.9,210.29
+CUST-0015,CONTR-555427,ACC-446512,Elpedison Home Basic,residential,Θεσσαλία,1533.44,134.56
+CUST-0016,CONTR-756870,ACC-739929,Protergia Home,residential,Αττική,2110.83,256.47
+CUST-0017,CONTR-675384,ACC-346846,NRG Οικιακό,residential,Βόρειο Αιγαίο,2745.83,296.55
+CUST-0018,CONTR-736201,ACC-579895,Watt+Volt Home,residential,Θεσσαλία,1307.74,114.75
+CUST-0019,CONTR-890600,ACC-228097,Watt+Volt Home,residential,Δυτική Μακεδονία,2808.02,341.17
+CUST-0020,CONTR-813636,ACC-297854,Ήρων Οικιακό,residential,Κεντρική Μακεδονία,1474.68,169.22
+CUST-0021,CONTR-242281,ACC-853040,Ήρων Οικιακό,residential,Αττική,1907.59,193.14
+CUST-0022,CONTR-942296,ACC-278985,ΔΕΗ Γ1Ν,residential,Πελοπόννησος,2484.4,218.01
+CUST-0023,CONTR-325822,ACC-957627,Watt+Volt Home,residential,Κρήτη,2573.15,260.53
+CUST-0024,CONTR-174418,ACC-634564,Watt+Volt Home,residential,Νότιο Αιγαίο,2890.73,351.22
+CUST-0025,CONTR-881882,ACC-533281,NRG Οικιακό,residential,Αττική,2081.05,224.75
+CUST-0026,CONTR-783740,ACC-912013,NRG Οικιακό,residential,Κρήτη,1409.95,152.27
+CUST-0027,CONTR-124082,ACC-840149,ΔΕΗ Γ1Ν,residential,Κεντρική Μακεδονία,2637.05,249.2
+CUST-0028,CONTR-300474,ACC-231777,Watt+Volt Home,residential,Θεσσαλία,1418.19,134.02
+CUST-0029,CONTR-929583,ACC-569936,Ήρων Οικιακό,residential,Αττική,2886.63,311.76
+CUST-0030,CONTR-158898,ACC-337350,Zenith Οικιακό,residential,Ανατολική Μακεδονία και Θράκη,2081.62,210.76
+CUST-0031,CONTR-632741,ACC-541796,Elpedison Home Basic,residential,Κεντρική Μακεδονία,2043.17,193.08
+CUST-0032,CONTR-515652,ACC-580782,ΔΕΗ myHome Online,residential,Νότιο Αιγαίο,1881.69,177.82
+CUST-0033,CONTR-372179,ACC-802053,ΕΛΤΑ Ενέργεια Οικιακό,residential,Ανατολική Μακεδονία και Θράκη,2274.63,245.66
+CUST-0034,CONTR-236791,ACC-831402,ΔΕΗ Γ1,residential,Κεντρική Μακεδονία,2946.59,278.45
+CUST-0035,CONTR-692446,ACC-484681,Ήρων Οικιακό,residential,Κεντρική Μακεδονία,2959.22,259.67
+CUST-0036,CONTR-526047,ACC-941033,ΔΕΗ Γ1Ν,residential,Ανατολική Μακεδονία και Θράκη,2761.95,335.58
+CUST-0037,CONTR-622362,ACC-646891,Protergia Home,residential,Κεντρική Μακεδονία,2738.53,240.31
+CUST-0038,CONTR-131833,ACC-889923,Protergia Home Plus,residential,Θεσσαλία,2550.17,275.42
+CUST-0039,CONTR-400175,ACC-748534,NRG Οικιακό,residential,Θεσσαλία,2985.34,362.72
+CUST-0040,CONTR-809609,ACC-945588,Zenith Οικιακό,residential,Αττική,1455.65,157.21
+CUST-0041,CONTR-782707,ACC-980307,ΕΛΤΑ Ενέργεια Οικιακό,residential,Κεντρική Μακεδονία,1797.27,218.37
+CUST-0042,CONTR-134479,ACC-346915,ΔΕΗ Γ1Ν,residential,Πελοπόννησος,2300.71,186.36
+CUST-0043,CONTR-788539,ACC-818434,NRG Οικιακό,residential,Στερεά Ελλάδα,2262.43,213.8
+CUST-0044,CONTR-285736,ACC-389551,Watt+Volt Home,residential,Κρήτη,2668.45,270.18
+CUST-0045,CONTR-201803,ACC-247907,Zenith Οικιακό,residential,Αττική,1367.76,166.18
+CUST-0046,CONTR-884226,ACC-251327,Zenith Οικιακό,residential,Αττική,1432.38,174.03
+CUST-0047,CONTR-989282,ACC-514278,Protergia Home,residential,Θεσσαλία,2541.77,308.83
+CUST-0048,CONTR-524863,ACC-750260,ΔΕΗ Γ1,residential,Θεσσαλία,1208.85,106.08
+CUST-0049,CONTR-977195,ACC-638774,Ήρων Οικιακό,residential,Κεντρική Μακεδονία,1237.09,108.55
+CUST-0050,CONTR-175407,ACC-341155,Zenith Οικιακό,residential,Κεντρική Μακεδονία,2059,166.78
+CUST-0051,CONTR-784404,ACC-245908,ΔΕΗ Γ1Ν,residential,Δυτική Ελλάδα,2069.82,181.63
+CUST-0052,CONTR-483293,ACC-741698,Elpedison Home Basic,residential,Θεσσαλία,2782.45,300.5
+CUST-0053,CONTR-413391,ACC-698895,Elpedison Home Basic,residential,Ανατολική Μακεδονία και Θράκη,2128.15,215.48
+CUST-0054,CONTR-636216,ACC-406636,Elpedison Home Basic,residential,Νότιο Αιγαίο,1247.25,117.87
+CUST-0055,CONTR-845814,ACC-330349,Elpedison Home Plus,residential,Αττική,2120.13,200.35
+CUST-0056,CONTR-780389,ACC-478851,Ήρων Οικιακό,residential,Αττική,1538.76,124.64
+CUST-0057,CONTR-139113,ACC-207757,Zenith Οικιακό,residential,Αττική,1456.85,147.51
+CUST-0058,CONTR-959993,ACC-933572,Protergia Home Plus,residential,Αττική,2731.62,239.7
+CUST-0059,CONTR-756149,ACC-273627,Ήρων Οικιακό Plus,residential,Στερεά Ελλάδα,2689.99,308.68
+CUST-0060,CONTR-202925,ACC-851144,Watt+Volt Home,residential,Κεντρική Μακεδονία,2813.95,265.92
+CUST-0061,CONTR-499372,ACC-732223,ΕΛΤΑ Ενέργεια Οικιακό,residential,Αττική,1975.95,200.06
+CUST-0062,CONTR-651316,ACC-224684,ΕΛΤΑ Ενέργεια Οικιακό,residential,Θεσσαλία,1604.33,184.1
+CUST-0063,CONTR-784917,ACC-482410,ΕΛΤΑ Ενέργεια Οικιακό,residential,Κρήτη,2244.28,196.94
+CUST-0064,CONTR-658859,ACC-287614,ΔΕΗ Γ1,residential,Αττική,2306.82,233.57
+CUST-0065,CONTR-110189,ACC-202925,ΔΕΗ Γ1,residential,Ανατολική Μακεδονία και Θράκη,1806.76,182.93
+CUST-0066,CONTR-308577,ACC-631411,Ήρων Οικιακό,residential,Αττική,2390.68,258.19
+CUST-0067,CONTR-732881,ACC-458494,Watt+Volt Home,residential,Κεντρική Μακεδονία,1260.3,144.62
+CUST-0068,CONTR-334589,ACC-779258,Watt+Volt Home,residential,Βόρειο Αιγαίο,2669.46,234.25
+CUST-0069,CONTR-145012,ACC-609200,ΔΕΗ Γ1Ν,residential,Αττική,1518.31,133.23
+CUST-0070,CONTR-557782,ACC-641510,NRG Οικιακό,residential,Κεντρική Μακεδονία,2858.64,270.14
+CUST-0071,CONTR-649595,ACC-906327,Ήρων Οικιακό,residential,Θεσσαλία,2955.29,339.12
+CUST-0072,CONTR-958621,ACC-319243,Zenith Οικιακό,residential,Αττική,1697.21,183.3
+CUST-0073,CONTR-979532,ACC-599378,ΕΛΤΑ Ενέργεια Οικιακό,residential,Κρήτη,1347.19,118.22
+CUST-0074,CONTR-176318,ACC-493395,ΔΕΗ myHome Online,residential,Δυτική Μακεδονία,1545.16,177.31
+CUST-0075,CONTR-732719,ACC-349441,Elpedison Home Basic,residential,Νότιο Αιγαίο,2092.75,226.02
+CUST-0076,CONTR-578027,ACC-226396,Ήρων Οικιακό,residential,Αττική,1564.27,147.82
+CUST-0077,CONTR-153945,ACC-910539,Watt+Volt Home,residential,Δυτική Μακεδονία,2149.98,203.17
+CUST-0078,CONTR-136867,ACC-670049,Ήρων Οικιακό,residential,Αττική,2525.84,255.74
+CUST-0079,CONTR-780040,ACC-661801,ΔΕΗ Γ1Ν,residential,Κεντρική Μακεδονία,1673.52,180.74
+CUST-0080,CONTR-801230,ACC-411638,ΕΛΤΑ Ενέργεια Οικιακό,residential,Δυτική Μακεδονία,2235.35,271.6
+CUST-0081,CONTR-986155,ACC-923008,ΔΕΗ Γ1Ν,residential,Ανατολική Μακεδονία και Θράκη,2827.34,267.18
+CUST-0082,CONTR-738049,ACC-857758,NRG Οικιακό,residential,Κρήτη,2976.07,281.24
+CUST-0083,CONTR-832156,ACC-269256,Protergia Home,residential,Πελοπόννησος,1998.83,229.37
+CUST-0084,CONTR-473614,ACC-715272,Zenith Οικιακό,residential,Νότιο Αιγαίο,1767.26,178.94
+CUST-0085,CONTR-433043,ACC-916900,Elpedison Home Plus,residential,Αττική,1564.41,126.72
+CUST-0086,CONTR-553932,ACC-450031,Ήρων Οικιακό,residential,Αττική,1468.94,158.65
+CUST-0087,CONTR-929212,ACC-342953,Elpedison Home Plus,residential,Στερεά Ελλάδα,2268.56,275.63
+CUST-0088,CONTR-817541,ACC-574771,Ήρων Οικιακό,residential,Αττική,1552.41,178.14
+CUST-0089,CONTR-830335,ACC-249970,Zenith Οικιακό,residential,Αττική,1246.69,126.23
+CUST-0090,CONTR-697262,ACC-609413,Zenith Οικιακό,residential,Στερεά Ελλάδα,1472.88,119.3
+CUST-0091,CONTR-184253,ACC-706497,Elpedison Home Basic,residential,Θεσσαλία,1995.03,228.93
+CUST-0092,CONTR-140966,ACC-382702,Watt+Volt Home,residential,Αττική,2029.31,191.77
+CUST-0093,CONTR-859017,ACC-305976,NRG Οικιακό,residential,Δυτική Μακεδονία,2876.32,271.81
+CUST-0094,CONTR-609003,ACC-857030,Ήρων Οικιακό Plus,residential,Αττική,1738.16,199.45
+CUST-0095,CONTR-211527,ACC-323497,ΔΕΗ Γ1,residential,Αττική,2563.78,224.97
+CUST-0096,CONTR-803195,ACC-918375,Ήρων Οικιακό Plus,residential,Αττική,2455.12,281.73
+CUST-0097,CONTR-100407,ACC-943916,Protergia Home Plus,residential,Κρήτη,2283.21,184.94
+CUST-0098,CONTR-997637,ACC-833118,ΔΕΗ myHome Online,residential,Αττική,1716.85,185.42
+CUST-0099,CONTR-377763,ACC-801558,Elpedison Home Basic,residential,Αττική,1335.63,117.2
+CUST-0100,CONTR-943470,ACC-546486,Ήρων Οικιακό,residential,Αττική,1939.32,170.18
+CUST-0101,CONTR-813640,ACC-623498,ΕΛΤΑ Ενέργεια Οικιακό,residential,Αττική,1947.73,157.77
+CUST-0102,CONTR-233336,ACC-753008,ΔΕΗ Γ1Ν,residential,Θεσσαλία,1200.47,121.55
+CUST-0103,CONTR-892535,ACC-581678,Protergia Home,residential,Κεντρική Μακεδονία,2194.63,222.21
+CUST-0104,CONTR-585349,ACC-597320,Elpedison Home Basic,residential,Θεσσαλία,1718.95,208.85
+CUST-0105,CONTR-693552,ACC-682145,ΕΛΤΑ Ενέργεια Οικιακό,residential,Κεντρική Μακεδονία,2806.58,227.33
+CUST-0106,CONTR-627816,ACC-658448,Ήρων Οικιακό Plus,residential,Αττική,2396.21,274.97
+CUST-0107,CONTR-928959,ACC-252380,NRG Οικιακό,residential,Αττική,2037.95,233.85
+CUST-0108,CONTR-712140,ACC-840860,Protergia Home,residential,Αττική,1795.66,169.69
+CUST-0109,CONTR-496746,ACC-975025,ΔΕΗ myHome Online,residential,Κεντρική Μακεδονία,2276.62,276.61
+CUST-0110,CONTR-459072,ACC-438456,ΔΕΗ Γ1Ν,residential,Αττική,1609.43,195.55
+CUST-0111,CONTR-758117,ACC-576664,Protergia Home Plus,residential,Θεσσαλία,2640.62,249.54
+CUST-0112,CONTR-538128,ACC-621628,ΔΕΗ Γ1,residential,Αττική,2382.51,241.23
+CUST-0113,CONTR-682101,ACC-993163,ΕΛΤΑ Ενέργεια Οικιακό,residential,Αττική,1595.52,140.01
+CUST-0114,CONTR-391903,ACC-372924,Watt+Volt Home,residential,Αττική,1820.05,196.57
+CUST-0115,CONTR-930844,ACC-236053,Protergia Home,residential,Κεντρική Μακεδονία,1321.79,133.83
+CUST-0116,CONTR-540580,ACC-733423,Protergia Home Plus,residential,Κρήτη,2357.9,286.48
+CUST-0117,CONTR-459964,ACC-456048,Zenith Οικιακό,residential,Κεντρική Μακεδονία,2655.05,250.9
+CUST-0118,CONTR-838434,ACC-547607,NRG Οικιακό,residential,Αττική,2650.87,268.4
+CUST-0119,CONTR-622422,ACC-811242,ΕΛΤΑ Ενέργεια Οικιακό,residential,Κεντρική Μακεδονία,1734.89,175.66
+CUST-0120,CONTR-786545,ACC-282951,Ήρων Οικιακό,residential,Ιόνια Νησιά,1535.53,176.2
+CUST-0121,CONTR-797311,ACC-355521,Elpedison Home Basic,residential,Δυτική Ελλάδα,1645.99,177.77
+CUST-0122,CONTR-670322,ACC-631032,Protergia Home Plus,residential,Αττική,1623.89,197.3
+CUST-0123,CONTR-160718,ACC-656749,Zenith Οικιακό,residential,Αττική,1827.57,172.71
+CUST-0124,CONTR-538939,ACC-821454,Watt+Volt Home,residential,Αττική,1490.85,140.89
+CUST-0125,CONTR-757065,ACC-712799,ΕΛΤΑ Ενέργεια Οικιακό,residential,Αττική,2872.57,349.02
+CUST-0126,CONTR-968918,ACC-740451,NRG Οικιακό,residential,Θεσσαλία,1896.44,204.82
+CUST-0127,CONTR-691102,ACC-974307,Watt+Volt Home,residential,Ιόνια Νησιά,1628.29,153.87
+CUST-0128,CONTR-706299,ACC-542837,NRG Οικιακό,residential,Αττική,2500.33,303.79
+CUST-0129,CONTR-469858,ACC-487933,ΔΕΗ myHome Online,residential,Θεσσαλία,1562.47,147.65
+CUST-0130,CONTR-265729,ACC-981222,Elpedison Home Basic,residential,Αττική,2977.52,341.67
+CUST-0131,CONTR-767475,ACC-454963,Protergia Home,residential,Δυτική Ελλάδα,2340.17,268.53
+CUST-0132,CONTR-720979,ACC-797516,Protergia Home,residential,Ιόνια Νησιά,2866.92,348.33
+CUST-0133,CONTR-625104,ACC-472389,ΔΕΗ Γ1,residential,Κεντρική Μακεδονία,1490.64,171.05
+CUST-0134,CONTR-690969,ACC-492568,NRG Οικιακό,residential,Αττική,2988.13,262.21
+CUST-0135,CONTR-297127,ACC-940537,ΔΕΗ Γ1Ν,residential,Κεντρική Μακεδονία,1305.66,123.38
+CUST-0136,CONTR-614338,ACC-498458,Elpedison Home Basic,residential,Αττική,1587.21,171.42
+CUST-0137,CONTR-307000,ACC-608460,Elpedison Home Basic,residential,Αττική,1651.34,156.05
+CUST-0138,CONTR-687768,ACC-952748,ΔΕΗ myHome Online,residential,Αττική,1816.2,147.11
+CUST-0139,CONTR-459497,ACC-675628,Elpedison Home Plus,residential,Κεντρική Μακεδονία,2251.5,197.57
+CUST-0140,CONTR-989000,ACC-602073,Watt+Volt Home,residential,Δυτική Ελλάδα,1748.15,177
+CUST-0141,CONTR-105199,ACC-843264,ΕΛΤΑ Ενέργεια Οικιακό,residential,Αττική,1834.07,198.08
+CUST-0142,CONTR-631531,ACC-211860,Zenith Οικιακό,residential,Ανατολική Μακεδονία και Θράκη,1964.95,238.74
+CUST-0143,CONTR-402461,ACC-378743,Watt+Volt Home,residential,Στερεά Ελλάδα,2004.25,175.87
+CUST-0144,CONTR-275003,ACC-984168,NRG Οικιακό,residential,Κεντρική Μακεδονία,2554.62,275.9
+CUST-0145,CONTR-330476,ACC-953642,Protergia Home Plus,residential,Κεντρική Μακεδονία,2267.55,244.9
+CUST-0146,CONTR-919058,ACC-408820,Elpedison Home Basic,residential,Αττική,2962.1,239.93
+CUST-0147,CONTR-979049,ACC-870449,Elpedison Home Basic,residential,Αττική,1757.11,154.19
+CUST-0148,CONTR-750771,ACC-239549,Protergia Home,residential,Κεντρική Μακεδονία,1845.62,199.33
+CUST-0149,CONTR-565008,ACC-798547,Protergia Home,residential,Κεντρική Μακεδονία,2195.87,177.87
+CUST-0150,CONTR-707422,ACC-292169,Watt+Volt Home,residential,Δυτική Μακεδονία,1789.05,144.91
+CUST-0151,CONTR-184037,ACC-552375,Protergia Home Plus,residential,Θεσσαλία,1674.92,169.59
+CUST-0152,CONTR-875709,ACC-409978,ΕΛΤΑ Ενέργεια Οικιακό,residential,Ήπειρος,2325.92,266.9
+CUST-0153,CONTR-709157,ACC-572040,Elpedison Home Basic,residential,Κεντρική Μακεδονία,1725.99,198.06
+CUST-0154,CONTR-488320,ACC-584362,NRG Οικιακό,residential,Ιόνια Νησιά,1611.78,152.31
+CUST-0155,CONTR-752481,ACC-936451,Elpedison Home Basic,residential,Ιόνια Νησιά,2056.25,180.44
+CUST-0156,CONTR-576124,ACC-548959,Ήρων Οικιακό,residential,Αττική,2685.69,290.05
+CUST-0157,CONTR-551401,ACC-630412,ΔΕΗ Γ1Ν,residential,Δυτική Μακεδονία,2446.69,264.24
+CUST-0158,CONTR-665911,ACC-937940,Ήρων Οικιακό Plus,residential,Κεντρική Μακεδονία,2992.16,343.35
+CUST-0159,CONTR-749907,ACC-658778,Ήρων Οικιακό,residential,Αττική,1249.85,126.55
+CUST-0160,CONTR-681777,ACC-615531,Elpedison Home Basic,residential,Αττική,2000.94,175.58
+CUST-0161,CONTR-177850,ACC-583020,Protergia Business,business,Στερεά Ελλάδα,5667.04,497.28
+CUST-0162,CONTR-984934,ACC-823661,Elpedison Business Plus,business,Ιόνια Νησιά,14661.38,1187.57
+CUST-0163,CONTR-721966,ACC-268688,Zenith Επαγγελματικό,business,Κεντρική Μακεδονία,8622.64,756.64
+CUST-0164,CONTR-704306,ACC-930021,Elpedison Business,business,Ιόνια Νησιά,19034.86,1927.28
+CUST-0165,CONTR-571329,ACC-306642,NRG Επαγγελματικό,business,Αττική,13597.76,1193.2
+CUST-0166,CONTR-627571,ACC-465803,ΔΕΗ myBusiness,business,Βόρειο Αιγαίο,10043.17,813.5
+CUST-0167,CONTR-632738,ACC-717034,ΔΕΗ myBusiness,business,Δυτική Μακεδονία,12673.06,855.43
+CUST-0168,CONTR-168824,ACC-818565,Protergia Business,business,Ανατολική Μακεδονία και Θράκη,18552.77,1878.47
+CUST-0169,CONTR-899871,ACC-391705,ΔΕΗ myBusiness,business,Δυτική Ελλάδα,18510.05,1499.31
+CUST-0170,CONTR-485753,ACC-389771,Ήρων Επαγγελματικό,business,Κεντρική Μακεδονία,9047.85,732.88
+CUST-0171,CONTR-478111,ACC-316853,ΔΕΗ myBusiness,business,Κεντρική Μακεδονία,18641.39,1635.78
+CUST-0172,CONTR-459476,ACC-557086,Protergia Business,business,Αττική,13527.6,1187.05
+CUST-0173,CONTR-630040,ACC-883856,NRG Επαγγελματικό,business,Κεντρική Μακεδονία,15446.62,1563.97
+CUST-0174,CONTR-116404,ACC-340218,Elpedison Business,business,Αττική,20790.44,1964.7
+CUST-0175,CONTR-243634,ACC-438335,Zenith Επαγγελματικό,business,Στερεά Ελλάδα,18188.78,1473.29
+CUST-0176,CONTR-196426,ACC-387455,Elpedison Business,business,Ανατολική Μακεδονία και Θράκη,5509.7,446.29
+CUST-0177,CONTR-724840,ACC-944850,Elpedison Business Plus,business,Αττική,13413.13,995.92
+CUST-0178,CONTR-193601,ACC-354488,Protergia Business,business,Αττική,8504.2,746.24
+CUST-0179,CONTR-455028,ACC-493548,Protergia Business Plus,business,Αττική,7406.32,599.91
+CUST-0180,CONTR-305717,ACC-562205,Elpedison Business Plus,business,Αττική,18812.27,1269.83
+CUST-0181,CONTR-149222,ACC-961205,Ήρων Επαγγελματικό,business,Κεντρική Μακεδονία,11963.13,1130.52
+CUST-0182,CONTR-487731,ACC-254559,Zenith Επαγγελματικό,business,Ήπειρος,12918.64,959.21
+CUST-0183,CONTR-719729,ACC-593392,Elpedison Business Plus,business,Πελοπόννησος,16344.97,1213.61
+CUST-0184,CONTR-891004,ACC-744355,Protergia Business,business,Αττική,16623.29,1458.69
+CUST-0185,CONTR-371667,ACC-718074,ΔΕΗ myBusiness,business,Ιόνια Νησιά,11268.5,988.81
+CUST-0186,CONTR-446748,ACC-581121,NRG Επαγγελματικό,business,Ήπειρος,16112.25,1196.33
+CUST-0187,CONTR-100577,ACC-635994,Elpedison Business Plus,business,Αττική,10640.78,861.9
+CUST-0188,CONTR-481158,ACC-411216,Ήρων Επαγγελματικό,business,Πελοπόννησος,14989.56,1011.8
+CUST-0189,CONTR-404192,ACC-963324,Watt+Volt Business,business,Αττική,16928.1,1371.18
+CUST-0190,CONTR-611282,ACC-830074,Zenith Επαγγελματικό,business,Νότιο Αιγαίο,14624.55,1283.3
+CUST-0191,CONTR-708093,ACC-960107,Elpedison Business,business,Κρήτη,6967.7,564.38
+CUST-0192,CONTR-806022,ACC-560099,Elpedison Business Plus,business,Θεσσαλία,16667.05,1575.04
+CUST-0193,CONTR-638701,ACC-383406,Ήρων Επαγγελματικό,business,Κεντρική Μακεδονία,9063.27,734.12
+CUST-0194,CONTR-754032,ACC-696613,Ήρων Επαγγελματικό,business,Αττική,9913.84,869.94
+CUST-0195,CONTR-461653,ACC-883610,ΔΕΗ myBusiness,business,Πελοπόννησος,8721.98,824.23
+CUST-0196,CONTR-157793,ACC-917284,Elpedison Business,business,Κεντρική Μακεδονία,11408.15,847.06
+CUST-0197,CONTR-616739,ACC-440293,ΔΕΗ Β1,business,Δυτική Ελλάδα,12415.76,1257.1
+CUST-0198,CONTR-139330,ACC-868348,Elpedison Business Plus,business,Ήπειρος,11468.5,1006.36
+CUST-0199,CONTR-101066,ACC-982385,Ήρων Επαγγελματικό,business,Κεντρική Μακεδονία,5531.5,410.71
+CUST-0200,CONTR-714065,ACC-507263,Elpedison Business,business,Αττική,8227.48,610.89
