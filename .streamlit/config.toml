@@ -1,0 +1,9 @@
+[theme]
+primaryColor = "#005BAA" 
+backgroundColor = "#F8F9FA"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#1E293B"
+font = "sans serif"
+
+[layout]
+max_width = "1200px"
