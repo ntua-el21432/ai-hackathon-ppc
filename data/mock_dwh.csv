@@ -1,7 +1,0 @@
-customer_id,contract_id,name,segment,region,active_tariff,avg_kwh_6m,last_3_bills_total
-GR-99824,CTR-A100,Maria K.,residential,Attica,MyHome Online,320,310.50
-GR-11111,CTR-B200,Nikos P.,residential,Thessaloniki,MyHome Basic,450,420.00
-GR-55555,CTR-C300,Elena S.,business,Crete,PPC Business 21,1200,1500.00
-GR-77777,CTR-D400,Giorgos T.,residential,Patras,MyHome Plus,500,480.00
-GR-DUPE1,CTR-E500,Giannis M.,residential,Attica,MyHome Enter,250,200.00
-GR-DUPE1,CTR-E501,Giannis M.,business,Attica,PPC Business 21,800,950.00

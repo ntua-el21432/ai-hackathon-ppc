@@ -22,38 +22,107 @@ def run_cached_extraction(image_bytes):
 
 st.markdown("""
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Entire App Background */
+    .stApp {
+        background-color: #F4F8FB;
+        background-image: radial-gradient(circle at top right, #E8F2FB 0%, #F4F8FB 100%);
+    }
+            
+    [data-testid="stHeader"] {
+        visibility: hidden;
+        height: 0%;
+    }
+
+    /* Hide the default Streamlit footer */
+    [data-testid="stFooter"] {
+        visibility: hidden;
+    }
+
+    /* Hide the toolbar  */
+    [data-testid="stToolbar"] {
+        visibility: hidden;
+    }
+
+    /* Vibrant Header Box */
     .title-box {
-        background: linear-gradient(135deg, #e0f7fa 0%, #ffebee 100%);
-        padding: 2rem;
-        border-radius: 15px;
+        background: linear-gradient(135deg, #005BAA 0%, #00C3D9 100%);
+        padding: 2.5rem;
+        border-radius: 16px;
         text-align: center;
         margin-bottom: 2rem;
-        margin-top: -50px; 
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        margin-top: -60px; 
+        box-shadow: 0 10px 25px rgba(0, 91, 170, 0.2);
+        border: 1px solid rgba(255,255,255,0.2);
     }
     .main-title {
-        color: #00b4d8; 
+        color: #FFFFFF !important; 
         font-size: 3rem;
         font-weight: 800;
         margin-bottom: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: -0.5px;
+        text-shadow: 1px 2px 4px rgba(0,0,0,0.15);
     }
     .sub-title {
-        color: #ff5252; 
-        font-size: 1.5rem; 
+        color: #E0F7FA !important; 
+        font-size: 1.3rem; 
         font-weight: 500;
         margin-top: 0.5rem;
     }
+
+    /* Interactive Metric Cards with Hover Effects */
     [data-testid="stMetric"] {
-        background-color: #f1f8ff; 
-        border: 1px solid #cce5ff;
-        border-left: 6px solid #00b4d8; 
+        background-color: #FFFFFF; 
+        border: 1px solid #E2E8F0;
+        border-left: 6px solid #00C3D9; 
         padding: 15px;
         border-radius: 10px;
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.04);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    [data-testid="stMetric"]:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 20px rgba(0, 195, 217, 0.15);
+        border-color: #00C3D9;
     }
     [data-testid="stMetricValue"] {
-        color: #ff5252; 
+        color: #005BAA; 
+        font-weight: 800;
+    }
+    [data-testid="stMetricLabel"] {
+        font-weight: 600;
+        color: #64748B;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+    }
+
+    /* Chat Bubble Styling (SaaS Look) */
+    [data-testid="stChatMessage"] {
+        background-color: #FFFFFF;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        border: 1px solid #E9ECEF;
+    }
+    
+    /* Clean Dataframes & Expanders */
+    th {
+        background-color: #E8F2FB !important;
+        color: #005BAA !important;
+        font-weight: 700 !important;
+    }
+    [data-testid="stExpander"] {
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        border: 1px solid #E2E8F0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -83,7 +152,7 @@ if not os.getenv("GOOGLE_API_KEY"):
 col_left, col_right = st.columns([1, 1.2], gap="large")
 
 with col_left:
-    st.markdown("<h3 style='color: #00b4d8;'>📄 Upload Bill</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color: #005BAA; font-weight: 800;'>📄 Upload Bill</h3>", unsafe_allow_html=True)
     uploaded_file = st.file_uploader(
         "Upload your bill (PNG, JPG)", 
         type=["png", "jpg", "jpeg"],
@@ -96,7 +165,6 @@ with col_left:
     if uploaded_file is not None:
         st.image(uploaded_file, caption="Uploaded Bill Document", width="stretch")
         
-        # Adding an else block to maintain the UI tree structure prevents the "greyed out" ghosting bug during reruns
         if st.session_state.extracted_data is None:
             with st.status("⚙️ Processing Billing Document...", expanded=True) as status:
                 try:
@@ -118,25 +186,31 @@ with col_left:
         data = st.session_state.extracted_data
         
         st.divider()
-        st.markdown("<h3 style='color: #ff5252;'>🔍 Bill Summary</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='color: #005BAA; font-weight: 800;'>🔍 Bill Summary</h3>", unsafe_allow_html=True)
+        
+        confidence_pct = int(data.extraction_confidence * 100)
+        st.caption(f"Extraction Confidence Score: **{confidence_pct}%**")
+        st.progress(data.extraction_confidence)
+        if confidence_pct < 80:
+            st.warning("Low confidence extraction. Please verify the details below.")
+
+        st.info(f"**AI Summary:** {data.bill_summary}")
+
         with st.container():
             summary_df = pd.DataFrame({
-                "Detail": ["Customer ID", "Total Amount", "Period", "Tariff"],
-                "Value": [data.customer_id, format_currency(data.total_amount), data.billing_period, data.tariff_code]
+                "Detail": ["Customer ID", "Account Number", "Total Amount", "Period", "Tariff", "Consumption"],
+                "Value": [data.customer_id, data.contract_account_num, format_currency(data.total_amount), data.billing_period, data.tariff_code, f"{data.consumption_kwh} kWh"]
             })
             st.dataframe(summary_df, hide_index=True, use_container_width=True)
             
-            with st.expander("📊 View Further Details"):
-                for key, value in data.model_dump().items():
-                    if isinstance(value, list):
-                        st.markdown(f"**{str(key).replace('_', ' ').title()}:**")
-                        if len(value) > 0 and isinstance(value[0], dict):
-                            st.dataframe(pd.DataFrame(value), hide_index=True, use_container_width=True)
-                        else:
-                            for item in value:
-                                st.write(f"- {item}")
-                    else:
-                        st.markdown(f"**{str(key).replace('_', ' ').title()}:** {value}")
+            st.markdown("<h4 style='color: #00C3D9; font-weight: 700; margin-top: 1rem;'>📊 Extracted Line Items</h4>", unsafe_allow_html=True)
+            if data.line_items:
+                lines_df = pd.DataFrame([item.model_dump() for item in data.line_items])
+                lines_df['amount'] = lines_df['amount'].apply(lambda x: format_currency(x))
+                lines_df.columns = [col.replace('_', ' ').title() for col in lines_df.columns]
+                st.dataframe(lines_df, hide_index=True, use_container_width=True)
+            else:
+                st.write("No line items extracted.")
         
         dwh_status = st.session_state.dwh_result['status'] 
         if dwh_status == "single_match":
@@ -151,7 +225,7 @@ with col_right:
         data = st.session_state.extracted_data
         dwh_status = st.session_state.dwh_result['status']
 
-        st.markdown("<h3 style='color: #00b4d8;'>💬 Ask the AI Agent</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='color: #005BAA; font-weight: 800;'>💬 Ask the AI Agent</h3>", unsafe_allow_html=True)
         
         with st.form(key="chat_input_form", clear_on_submit=True):
             cols = st.columns([5, 1])
@@ -164,13 +238,17 @@ with col_right:
             with cols[1]:
                 submit_button = st.form_submit_button("Send")
 
-        chat_container = st.container(height=520, border=True)
+        chat_container = st.container(height=520, border=False)
         with chat_container:
             for message in st.session_state.messages:
                 with st.chat_message(message["role"]):
                     st.markdown(message["content"])
 
         if submit_button and prompt:
+            chat_history_text = "\n".join([f"{m['role'].capitalize()}: {m['content']}" for m in st.session_state.messages])
+            if not chat_history_text:
+                chat_history_text = "No previous conversation history."
+
             st.session_state.messages.append({"role": "user", "content": prompt})
             
             with chat_container:
@@ -184,11 +262,11 @@ with col_right:
                         pkg = generate_prompt_package(
                             user_query=prompt,
                             dwh_status=dwh_status,
-                            extracted_data=data.model_dump_json()
+                            extracted_data=data.model_dump_json(),
+                            chat_history=chat_history_text
                         )
                         
                         with st.expander("⚙️ System: View RAG Prompt Package & Confidence"):
-                            # Added the numeric value alongside the confidence score text
                             st.caption(f"Routing Confidence Score: **{int(pkg.confidence_score * 100)}%**")
                             st.progress(pkg.confidence_score)
                             st.write("**Generated Retrieval Queries:**", pkg.retrieval_queries)
@@ -201,15 +279,21 @@ with col_right:
                             else:
                                 st.write("No documents retrieved (Database might be empty).")
                                 
-                        if dwh_status == "single_match" or dwh_status == "no_match":
+                        if pkg.clarifying_questions and len(pkg.clarifying_questions) > 0:
+                            response = f"**I need clarification:** {pkg.clarifying_questions[0]}"
+                        else:
+                            customer_data_payload = "No Data"
+                            # Safely fetch DWH data if it exists
+                            if st.session_state.dwh_result and st.session_state.dwh_result.get('status') == "single_match":
+                                customer_data_payload = st.session_state.dwh_result.get('data')
+
                             response = generate_final_answer(
                                 system_instructions=pkg.system_instructions,
-                                customer_data=st.session_state.dwh_result['data'] if dwh_status == "single_match" else "No Data",
+                                customer_data=customer_data_payload,
                                 retrieved_docs=retrieved_docs,
-                                user_query=prompt
+                                user_query=prompt,
+                                chat_history=chat_history_text
                             )
-                        else:
-                            response = f"**I need clarification:** {pkg.clarifying_questions[0]}"
                         
                         st.markdown(response)
             
