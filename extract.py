@@ -1,3 +1,11 @@
+# NOTES
+# 1. Change to being a single function like extraction.py to import directly to main.py
+# 2. Use config.py to load the model
+# 3. Figure out if this approach or llm.with_structured_output is better for the json output guarantee
+# probably: structured_llm = raw_llm.with_structured_output(BillExtraction)
+# 4. Encode image is already in helpers.py. No need for it here
+# 5. Keep both greek and engligh descriptions for model, or better have a English/ Greek option.
+
 import os
 import base64
 from typing import List, Optional

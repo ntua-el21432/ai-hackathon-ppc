@@ -1,7 +1,7 @@
 # the commented lines wll be used when we get the micrososft resources for the final project
-# azure-identity==1.15.0    
-# langchain-openai==0.1.1
-# azure-search-documents==11.0.0b1
+azure-identity==1.15.0    
+langchain-openai==0.1.1
+azure-search-documents==11.0.0b1
 
 streamlit>=1.54.0
 pandas>=2.2.1
