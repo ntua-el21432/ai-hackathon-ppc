@@ -23,11 +23,12 @@ class BillExtraction(BaseModel):
 
 def extract_bill_data(image_uri: str) -> BillExtraction:
     llm = get_llm()
-    parser= PydanticOutputParser(pydantic_object=BillExtraction)
+    structured_llm = llm.with_structured_output(BillExtraction)
+
     prompt = ChatPromptTemplate.from_messages([
         ("system", """You are an expert AI Billing Agent for PPC. 
         Analyze the provided electricity bill image and extract the exact fields requested.
-        {format_instructions}
+
         CRITICAL RULES:
         1. Categorize all line items strictly into one of these four categories: 'energy', 'regulated', 'taxes', 'other'.
         2. If an important field is illegible or missing, use a logical default (e.g., 'Unknown' or 0.0), but drastically lower your 'extraction_confidence' score.
@@ -41,9 +42,8 @@ def extract_bill_data(image_uri: str) -> BillExtraction:
     # αυτο το chain παιρνει το prompt, το περναει στο llm που επιλεξαμε 
     # με την get_llm απο το config.py και μετα το δινει στο parser
     # για να επιστρεψει ενα BillExtraction object με τα πεδια που θελουμε
-    chain = prompt | llm | parser
+    chain = prompt | structured_llm 
 
     return chain.invoke({
         "image_uri": image_uri,
-        "format_instructions": parser.get_format_instructions()
     })

@@ -1,28 +1,20 @@
-# ΠΑΙΡΝΕΙ ΤΑ PDF ΚΑΙ MD ΑΠΟ ΤΟ knowledge_base/ folder
-# ΤΑ ΧΩΡΙΖΕΙ ΣΕ ΚΟΜΜΑΤΙΑ ΚΑΙ ΤΑ ΒΑΖΕΙ ΣΤΟ VECTOR DB
-
 import os
-import time
 from dotenv import load_dotenv
 from langchain_community.document_loaders import DirectoryLoader, TextLoader, PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_chroma import Chroma
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_community.vectorstores.azuresearch import AzureSearch
+from langchain_openai import AzureOpenAIEmbeddings
 
-# Load your GEMINI_API_KEY
+# Load environment variables
 load_dotenv()
 
-# Define your paths based on your folder structure
 SOURCE_DOCS_DIR = "./knowledge_base"
-CHROMA_DB_DIR = "./knowledge_base/chroma_db"
 
-def build_vector_database():
+def build_azure_vector_database():
     print(f"📁 Looking for documents in {SOURCE_DOCS_DIR}...")
     
     # 1. Load all PDFs and Markdown files
     pdf_loader = DirectoryLoader(SOURCE_DOCS_DIR, glob="**/*.pdf", loader_cls=PyPDFLoader)
-    
-    # Force UTF-8 encoding for text/markdown files
     md_loader = DirectoryLoader(
         SOURCE_DOCS_DIR, 
         glob="**/*.md", 
@@ -40,7 +32,7 @@ def build_vector_database():
 
     print(f"📄 Found {len(documents)} document(s).")
 
-    # 2. Split the documents into smaller semantic chunks
+    # 2. Split the documents into chunks
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=500,
         chunk_overlap=50,
@@ -49,32 +41,26 @@ def build_vector_database():
     chunks = text_splitter.split_documents(documents)
     print(f"✂️ Split documents into {len(chunks)} chunks.")
 
-    # 3. Embed the chunks using Gemini and save to ChromaDB
-    print("🧠 Embedding chunks and saving to ChromaDB...")
-    embeddings = GoogleGenerativeAIEmbeddings(model="gemini-embedding-001")
+    # 3. Initialize Azure Embeddings & Azure AI Search
+    print("☁️ Connecting to Azure AI Search...")
     
-    # Initialize an empty Chroma vector store pointing to your directory
-    db = Chroma(persist_directory=CHROMA_DB_DIR, embedding_function=embeddings)
+    embeddings = AzureOpenAIEmbeddings(
+        azure_deployment=os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT"),
+        openai_api_version=os.getenv("AZURE_OPENAI_API_VERSION")
+    )
     
-    # 🌟 THE BULLETPROOF FIX: 80 chunks per 65 seconds to respect the 100/min quota
-    BATCH_SIZE = 80 
+    vector_store = AzureSearch(
+        azure_search_endpoint=os.getenv("AZURE_SEARCH_ENDPOINT"),
+        azure_search_key=os.getenv("AZURE_SEARCH_API_KEY"),
+        index_name=os.getenv("AZURE_SEARCH_INDEX_NAME"),
+        embedding_function=embeddings.embed_query,
+    )
     
-    for i in range(0, len(chunks), BATCH_SIZE):
-        batch = chunks[i:i + BATCH_SIZE]
-        current_batch_num = (i // BATCH_SIZE) + 1
-        total_batches = ((len(chunks) - 1) // BATCH_SIZE) + 1
-        
-        print(f"⏳ Processing batch {current_batch_num} / {total_batches} (Chunks {i} to {i+len(batch)})...")
-        
-        # Add this batch to the database
-        db.add_documents(batch)
-        
-        # If there are more chunks left, do a hard 65-second sleep to clear the API bucket
-        if i + BATCH_SIZE < len(chunks):
-            print("💤 API Cooldown: Sleeping for 65 seconds to clear the 60-second rolling quota...")
-            time.sleep(65)
+    # 4. Upload everything in one shot
+    print(f"🚀 Uploading all {len(chunks)} chunks to Azure AI Search...")
+    vector_store.add_documents(chunks)
             
-    print(f"✅ Success! Vector database saved to {CHROMA_DB_DIR}")
+    print("✅ Success! Knowledge base uploaded to Azure AI Search.")
 
 if __name__ == "__main__":
-    build_vector_database()
+    build_azure_vector_database()

@@ -5,18 +5,11 @@
 import os
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
-#from langchain_openai import AzureChatOpenAI
+from langchain_openai import AzureChatOpenAI
 
 load_dotenv()
 
 def get_llm():
-    return ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash", 
-        google_api_key=os.getenv("GOOGLE_API_KEY"),
-        temperature=0
-    )
-
-def get_gpt_llm():
     """
     Initializes the Azure OpenAI Chat model for LangChain.
     It automatically looks for AZURE_OPENAI_API_KEY and AZURE_OPENAI_ENDPOINT 

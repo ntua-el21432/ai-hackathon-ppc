@@ -146,8 +146,8 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-if not os.getenv("GOOGLE_API_KEY"):
-    st.error("GOOGLE_API_KEY not found")
+if not os.getenv("AZURE_OPENAI_API_KEY"):
+    st.error("AZURE_OPENAI_API_KEY not found")
 
 col_left, col_right = st.columns([1, 1.2], gap="large")
 
