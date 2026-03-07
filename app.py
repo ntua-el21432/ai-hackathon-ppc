@@ -245,6 +245,7 @@ with col_right:
                     st.markdown(message["content"])
 
         if submit_button and prompt:
+            # 1. Compile history
             chat_history_text = "\n".join([f"{m['role'].capitalize()}: {m['content']}" for m in st.session_state.messages])
             if not chat_history_text:
                 chat_history_text = "No previous conversation history."
@@ -257,44 +258,44 @@ with col_right:
                     
             with chat_container:
                 with st.chat_message("assistant"):
-                    with st.spinner("Analyzing rules and history..."):
+                    with st.spinner("Searching Azure Knowledge Base and analyzing..."):
                         
+                        # 2. Generate Search Queries
                         pkg = generate_prompt_package(
                             user_query=prompt,
                             dwh_status=dwh_status,
                             extracted_data=data.model_dump_json(),
-                            chat_history=chat_history_text
+                            chat_history=chat_history_text 
                         )
                         
-                        with st.expander("⚙️ System: View RAG Prompt Package & Confidence"):
+                        # 3. Fetch from Azure AI Search!
+                        retrieved_docs = retrieve_knowledge(pkg.retrieval_queries)
+                        
+                        with st.expander("⚙️ System: View Azure Retrieval & Prompt Package"):
                             st.caption(f"Routing Confidence Score: **{int(pkg.confidence_score * 100)}%**")
                             st.progress(pkg.confidence_score)
                             st.write("**Generated Retrieval Queries:**", pkg.retrieval_queries)
-                            st.write(f"**Routing Status:** {dwh_status}")
+                            st.markdown(f"**Retrieved Knowledge Chunks:**\n\n{retrieved_docs}")
                         
-                        retrieved_docs = retrieve_knowledge(pkg.retrieval_queries)
-                        with st.expander("📚 View Retrieved Knowledge (ChromaDB)"):
-                            if retrieved_docs:
-                                st.markdown(retrieved_docs)
-                            else:
-                                st.write("No documents retrieved (Database might be empty).")
-                                
+                        # 4. Smart Routing Logic
                         if pkg.clarifying_questions and len(pkg.clarifying_questions) > 0:
                             response = f"**I need clarification:** {pkg.clarifying_questions[0]}"
                         else:
                             customer_data_payload = "No Data"
-                            # Safely fetch DWH data if it exists
                             if st.session_state.dwh_result and st.session_state.dwh_result.get('status') == "single_match":
                                 customer_data_payload = st.session_state.dwh_result.get('data')
 
+                            # 5. Generate Final Answer
                             response = generate_final_answer(
                                 system_instructions=pkg.system_instructions,
                                 customer_data=customer_data_payload,
-                                retrieved_docs=retrieved_docs,
+                                retrieved_docs=retrieved_docs, # Passes Azure docs to Gemini
                                 user_query=prompt,
                                 chat_history=chat_history_text
                             )
                         
                         st.markdown(response)
+            
+            st.session_state.messages.append({"role": "assistant", "content": response})
             
             st.session_state.messages.append({"role": "assistant", "content": response})

@@ -1,8 +1,9 @@
 # the commented lines wll be used when we get the micrososft resources for the final project
 azure-identity==1.15.0    
+azure-storage-blob
 langchain-openai>=0.1.3
 azure-search-documents>=11.4.0
-
+#pip install -U langchain-azure-storage unstructured "unstructured[pdf]"
 streamlit>=1.54.0
 pandas>=2.2.1
 python-dotenv>=1.0.1

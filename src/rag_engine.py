@@ -7,16 +7,17 @@ class PromptPackage(BaseModel):
     retrieval_queries: List[str] = Field(
         description="1 to 3 distinct search queries to run against the vector database based on the user's latest message and history."
     )
-    # 🌟 FIX: Removed the crashing 'metadata_filters' dictionary entirely!
     
     system_instructions: str = Field(
         default="You are a helpful PPC billing assistant. Base your answers strictly on the retrieved documents and customer data. Do not hallucinate.",
         description="Strict rules for the final generation (e.g., use citations, avoid hallucination)."
     )
+
     clarifying_questions: List[str] = Field(
         default_factory=list,
         description="Questions for the user if the DWH match failed or input is ambiguous. Leave empty if intent is clear."
     )
+    
     confidence_score: float = Field(
         default=1.0,
         description="Confidence score (0.0 to 1.0) of understanding the user's intent."
@@ -25,7 +26,6 @@ class PromptPackage(BaseModel):
 def generate_prompt_package(user_query: str, dwh_status: str, extracted_data: str, chat_history: str) -> PromptPackage:
     llm = get_llm()
     
-    # 🌟 FIX: Add strict=False to ensure Azure OpenAI doesn't block your schema
     structured_llm = llm.with_structured_output(PromptPackage, strict=False)
     
     prompt = ChatPromptTemplate.from_messages([

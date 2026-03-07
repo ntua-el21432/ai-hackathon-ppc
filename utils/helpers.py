@@ -22,8 +22,8 @@ def load_mock_dwh():
             "context": pd.read_csv("data/Customer_Context.csv"),
             "header": pd.read_csv("data/Billing_Header.csv"),
             "lines": pd.read_csv("data/Billing_Lines.csv"),
-            "sample1": pd.read_excel("data/Sample Data 1.xlsx"),
-            "sample2": pd.read_excel("data/Sample Data 2.xlsx"),
+            #"sample1": pd.read_excel("data/Sample Data 1.xlsx"),
+            #"sample2": pd.read_excel("data/Sample Data 2.xlsx"),
         }
     except Exception as e:
         st.error(f"Error loading databases: {e}")
