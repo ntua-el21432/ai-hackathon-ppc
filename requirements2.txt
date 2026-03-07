@@ -1,0 +1,33 @@
+# --- Microsoft / Azure Resources (for final project) ---
+# the commented lines wll be used when we get the micrososft resources for the final project
+azure-identity>=1.25.2   
+azure-storage-blob
+azure-search-documents>=11.4.0
+#pip install -U langchain-azure-storage unstructured "unstructured[pdf]"
+
+# --- Core LangChain & AI Models ---
+langchain>=0.3.0
+langchain-community>=0.3.0
+langchain-openai>=0.1.3
+langchain-google-genai>=4.2.1 
+langsmith>=0.1.50
+
+# --- Vector Stores & Document Processing ---
+chromadb>=1.5.2              
+langchain-chroma>=1.1.0      
+pypdf>=4.1.0
+
+# --- Vision, OCR & Web Search (Added for your pipeline) ---
+pytesseract>=0.3.13
+Pillow>=10.0.0
+duckduckgo-search>=6.0.0
+
+# --- App Framework & Utilities ---
+streamlit>=1.54.0
+pandas>=2.2.1
+python-dotenv>=1.0.1
+pydantic>=2.7.1
+
+
+#voice recognition
+streamlit-mic-recorder
