@@ -1,18 +1,31 @@
-# the commented lines wll be used when we get the micrososft resources for the final project
-azure-identity==1.15.0    
+azure-identity>=1.25.2   
 azure-storage-blob
-langchain-openai>=0.1.3
 azure-search-documents>=11.4.0
-#pip install -U langchain-azure-storage unstructured "unstructured[pdf]"
+
+langchain>=0.3.0
+langchain-community>=0.3.0
+langchain-openai>=0.1.3
+langchain-google-genai>=4.2.1 
+langsmith>=0.1.50
+
+chromadb>=1.5.2              
+langchain-chroma>=1.1.0      
+pypdf>=4.1.0
+
+pytesseract>=0.3.13
+Pillow>=10.0.0
+duckduckgo-search>=6.0.0
+
 streamlit>=1.54.0
 pandas>=2.2.1
 python-dotenv>=1.0.1
 pydantic>=2.7.1
-langchain>=1.1.0
-langchain-community>=0.3.0
-langchain-chroma>=1.1.0      
-langchain-google-genai>=4.2.1 
-langsmith>=0.1.50
-pypdf>=4.1.0
-chromadb>=1.5.2              
 
+
+#voice recognition
+streamlit-mic-recorder
+
+fastapi
+uvicorn 
+python-multipart 
+requests

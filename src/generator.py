@@ -4,7 +4,6 @@ from src.config import get_llm
 def generate_final_answer(system_instructions, customer_data, retrieved_docs, user_query, chat_history):
     """
     Generates a grounded, personalized, and cited response.
-    Satisfies Step 4: Grounded Answer Generation.
     """
     llm = get_llm()
 

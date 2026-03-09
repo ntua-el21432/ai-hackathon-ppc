@@ -1,8 +1,10 @@
-import streamlit as st
 import os
 import pandas as pd
 from dotenv import load_dotenv
+load_dotenv()
+print("Tracing enabled:", os.environ.get("LANGCHAIN_TRACING_V2"))
 
+import streamlit as st
 from utils.helpers import encode_image_to_base64, load_mock_dwh, format_currency
 from src.extraction import extract_bill_data
 from src.dwh_matcher import match_customer
@@ -10,9 +12,10 @@ from src.rag_engine import generate_prompt_package
 from src.vector_store import retrieve_knowledge
 from src.generator import generate_final_answer
 
-#from streamlit_mic_recorder import speech_to_text
+import io
+from openai import AzureOpenAI
+from streamlit_mic_recorder import mic_recorder
 
-load_dotenv()
 
 st.set_page_config(page_title="PPC AI Billing Agent", page_icon="⚡", layout="wide")
 
@@ -176,6 +179,31 @@ with col_left:
                     st.write("🗄️ Querying Data Warehouse...")
                     mock_dwh = load_mock_dwh()
                     st.session_state.dwh_result = match_customer(st.session_state.extracted_data.customer_id, mock_dwh)
+                    
+
+                    dwh_status = st.session_state.dwh_result.get('status')
+                    if dwh_status not in ["single_match", "multiple_matches"]:
+                        st.write("No DWH match found. Generating clarification prompt...")
+                        
+                        # Give the LLM specific instructions for this edge case
+                        system_msg = (
+                            "You are a helpful AI Billing Assistant. "
+                            f"We successfully extracted data from the user's uploaded bill, but the Customer ID we found ({st.session_state.extracted_data.customer_id}) "
+                            "does NOT exist in our Data Warehouse database. "
+                            "Politely inform the user about this issue, mention the Customer ID that was extracted, "
+                            "and ask them to verify if the ID on the bill is correct, or if they have an updated account number."
+                        )
+                        
+                        proactive_response = generate_final_answer(
+                            system_instructions=system_msg,
+                            customer_data="No matching records found in Data Warehouse.",
+                            retrieved_docs="Not applicable. Database mismatch.",
+                            user_query="My document was just processed, but there's a DWH mismatch. What should I do?",
+                            chat_history=""
+                        )
+                        
+                        st.session_state.messages.append({"role": "assistant", "content": proactive_response})
+                    
                     status.update(label="✅ Analysis Complete!", state="complete", expanded=False)
                 except Exception as e:
                     status.update(label="❌ Processing Failed", state="error", expanded=True)
@@ -229,34 +257,77 @@ with col_right:
 
         st.markdown("<h3 style='color: #005BAA; font-weight: 800;'>💬 Ask the AI Agent</h3>", unsafe_allow_html=True)
         
-        with st.form(key="chat_input_form", clear_on_submit=True):
-            cols = st.columns([5, 1])
-            with cols[0]:
-                prompt = st.text_input(
-                    "Ask a question:", 
-                    label_visibility="collapsed", 
-                    placeholder="E.g., Why is this bill higher than last month?"
-                )
-            with cols[1]:
-                submit_button = st.form_submit_button("Send")
+        # Initialize Azure OpenAI Client
+        client = AzureOpenAI(
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
+        )
 
+        # This will hold the final question, whether it comes from text or voice
+        prompt_to_process = None
+
+        # Layout for Voice and Text
+        mic_col, input_col = st.columns([1, 5])
+        
+        with mic_col:
+            audio = mic_recorder(
+                start_prompt="🎙️ Record",
+                stop_prompt="🛑 Stop",
+                use_container_width=True,
+                just_once=True,
+                key='whisper_mic'
+            )
+            
+            # If voice is recorded, transcribe and instantly set it to be processed
+            if audio:
+                with st.spinner("Transcribing..."):
+                    audio_bytes = audio['bytes']
+                    audio_file = io.BytesIO(audio_bytes)
+                    audio_file.name = "audio.webm" 
+
+                    transcription = client.audio.transcriptions.create(
+                        model=os.getenv("AZURE_WHISPER_DEPLOYMENT"),
+                        file=audio_file
+                    )
+                    prompt_to_process = transcription.text
+
+        with input_col:
+            with st.form(key="chat_input_form", clear_on_submit=True):
+                cols = st.columns([5, 1])
+                with cols[0]:
+                    text_input = st.text_input(
+                        "Ask a question:", 
+                        label_visibility="collapsed",
+                        placeholder="Type a question here..."
+                    )
+                with cols[1]:
+                    submit_button = st.form_submit_button("Send")
+                
+                # If text is submitted, set it to be processed
+                if submit_button and text_input:
+                    prompt_to_process = text_input
+
+        # ----------------------------------------------------------------
+        # Chat Rendering & Execution
         chat_container = st.container(height=520, border=False)
         with chat_container:
             for message in st.session_state.messages:
                 with st.chat_message(message["role"]):
                     st.markdown(message["content"])
 
-        if submit_button and prompt:
+        # RAG Pipeline: Fires immediately if either voice or text provided a prompt
+        if prompt_to_process:
             # 1. Compile history
             chat_history_text = "\n".join([f"{m['role'].capitalize()}: {m['content']}" for m in st.session_state.messages])
             if not chat_history_text:
                 chat_history_text = "No previous conversation history."
 
-            st.session_state.messages.append({"role": "user", "content": prompt})
+            st.session_state.messages.append({"role": "user", "content": prompt_to_process})
             
             with chat_container:
                 with st.chat_message("user"):
-                    st.markdown(prompt)
+                    st.markdown(prompt_to_process)
                     
             with chat_container:
                 with st.chat_message("assistant"):
@@ -264,13 +335,13 @@ with col_right:
                         
                         # 2. Generate Search Queries
                         pkg = generate_prompt_package(
-                            user_query=prompt,
+                            user_query=prompt_to_process,
                             dwh_status=dwh_status,
                             extracted_data=data.model_dump_json(),
                             chat_history=chat_history_text 
                         )
                         
-                        # 3. Fetch from Azure AI Search!
+                        # 3. Fetch from Azure AI Search
                         retrieved_docs = retrieve_knowledge(pkg.retrieval_queries)
                         
                         with st.expander("⚙️ System: View Azure Retrieval & Prompt Package"):
@@ -291,8 +362,8 @@ with col_right:
                             response = generate_final_answer(
                                 system_instructions=pkg.system_instructions,
                                 customer_data=customer_data_payload,
-                                retrieved_docs=retrieved_docs, # Passes Azure docs to Gemini
-                                user_query=prompt,
+                                retrieved_docs=retrieved_docs, 
+                                user_query=prompt_to_process,
                                 chat_history=chat_history_text
                             )
                         
@@ -300,4 +371,3 @@ with col_right:
             
             st.session_state.messages.append({"role": "assistant", "content": response})
             
-            st.session_state.messages.append({"role": "assistant", "content": response})
