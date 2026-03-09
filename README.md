@@ -1,5 +1,24 @@
-# ai-hackathon-ppc
+# Vision-to-RAG Prompt Builder for Energy Billing
+
 Our team's work on the special challenge by ΔΕΗ/PPC: Vision-to-RAG Prompt Builder for Energy Billing. 
+
+## Vision-to-RAG Prompt Builder for Energy Billing
+**Special Challenge by ΔΕΗ/PPC | AI Hackathon by ACE 2026**
+
+Developed an AI system using OCR and Retrieval-Augmented Generation + Hybrid Solutions to analyze energy bills and provide automated insights for the ACE AI Hackathon 2026.
+
+![Screenshot of the Vision-to-RAG interface](data/IMG_20260309_171106.jpg)
+
+### Technologies Used
+* Python
+* LangChain
+* Streamlit
+* RAG
+* Tesseract OCR
+* Azure AI Search
+* FastAPI
+
+---
 
 # ΑΡΧΙΚΟΣ ΟΔΗΓΟΣ 
 
@@ -11,7 +30,6 @@ Our team's work on the special challenge by ΔΕΗ/PPC: Vision-to-RAG Prompt Bui
 6) Επισησς φτιαχτε ενα .env αρχειο στο οποιο μεσα βαλτε τα απαιτουμενα env variables / api keys. 
 7) Τρεχτε python ingest.py το οποιο ουσιαστικα φτιαχνει το Knowledge_base στο οπιιο θα βασιστει το μοντελο για την απαντηση με RAG.
 8) Αν ολα πανε καλα αν τρεξετε streamlit run app.py --server.port 8888 θα αρχισει μπορειτε να δειτε το ντεμο.
-
 
 # ΠΕΡΙΓΡΑΦΗ
 
