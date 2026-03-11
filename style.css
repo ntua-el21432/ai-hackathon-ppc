@@ -1,0 +1,277 @@
+/* =========================================
+   Base & Typography
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f0f2f5; 
+  color: #333;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   Main Container
+   ========================================= */
+.cv-container {
+  width: 90%; /* This tells it to take up 90% of your screen width */
+  max-width: 1200px; /* This stops it from stretching too far on ultra-wide monitors */
+  margin: 50px auto;
+  padding: 50px 40px;
+  background-color: #ffffff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); 
+  border-radius: 12px;
+  overflow: hidden; 
+}
+
+/* =========================================
+   Header & Titles
+   ========================================= */
+header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+header h1 {
+  font-size: 42px;
+  color: #004080;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #666;
+  margin: 8px 0 20px 0;
+  font-weight: 400;
+}
+
+header::after {
+  content: '';
+  display: block;
+  width: 80px; 
+  height: 4px; 
+  background-color: #004080; 
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.section h2 {
+  font-size: 24px;
+  color: #004080;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #e6f0ff; 
+  display: inline-block; 
+  width: 100%;
+}
+
+/* =========================================
+   Scroll Animations
+   ========================================= */
+.section {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  margin-bottom: 30px;
+}
+
+.section:nth-of-type(even) { transform: translate3d(50px, 40px, 0); }
+.section:nth-of-type(odd) { transform: translate3d(-50px, 40px, 0); }
+
+.section.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* =========================================
+   Content & Lists
+   ========================================= */
+ul { list-style: none; padding-left: 0; margin: 0; }
+ul li { margin-bottom: 8px; color: #444; }
+ul li strong { color: #004080; margin-right: 5px; }
+
+/* =========================================
+   Skills Badges (Pills)
+   ========================================= */
+ul.skills { display: flex; flex-wrap: wrap; gap: 10px; }
+ul.skills li {
+  background: #f0f7ff;
+  color: #004080;
+  padding: 6px 14px;
+  border-radius: 20px; 
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #dceeff;
+  transition: all 0.2s ease-in-out;
+  cursor: default;
+}
+
+ul.skills li:hover {
+  background-color: #004080;
+  color: #ffffff;
+  border-color: #004080;
+  transform: translateY(-3px); 
+  box-shadow: 0 4px 10px rgba(0, 64, 128, 0.2);
+}
+
+/* =========================================
+   Projects Section
+   ========================================= */
+.project-entry {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #fafbfc;
+  border-left: 5px solid #004080;
+  border-radius: 4px;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  gap: 15px;
+}
+
+.project-header h3 { 
+  margin: 0; 
+  font-size: 19px; 
+  color: #222; 
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #004080;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 12px;
+  border: 1px solid #004080;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.github-link:hover {
+  background-color: #004080;
+  color: #ffffff;
+}
+
+.project-subtitle {
+  font-size: 13px;
+  color: #004080;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+ul.project-tech li { 
+  font-size: 12px; 
+  padding: 4px 10px; 
+  background-color: #ffffff; 
+}
+
+ul.project-tech li:hover {
+  background-color: #004080;
+  color: #ffffff;
+}
+
+/* =========================================
+   Certification Toggle
+   ========================================= */
+.cert-toggle-btn {
+  background: none;
+  border: none;
+  color: #004080;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease-in-out;
+  font-family: inherit;
+}
+
+.cert-toggle-btn:hover {
+  color: #00264d;
+  text-decoration: underline;
+}
+
+.cert-container {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.3s ease;
+}
+
+.cert-container.show {
+  max-height: 800px; /* Adjust if your image is extremely tall */
+  opacity: 1;
+  margin-top: 15px;
+}
+
+.cert-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid #dceeff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================================
+   Education Section
+   ========================================= */
+.education-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fdfdfd;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+}
+.edu-school { font-size: 18px; color: #222; margin: 0 0 5px 0; }
+.edu-degree { font-size: 15px; color: #555; font-weight: 500; margin: 0 0 5px 0; }
+.edu-dates { font-size: 13px; color: #888; font-style: italic; }
+.uni-logo { width: 70px; height: auto; }
+
+/* =========================================
+   Footer
+   ========================================= */
+footer {
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* =========================================
+   Mobile Responsiveness
+   ========================================= */
+@media (max-width: 600px) {
+  .cv-container { padding: 30px 20px; margin: 0; width: 100%; }
+  header h1 { font-size: 30px; }
+  .education-entry { flex-direction: column-reverse; align-items: flex-start; }
+  .uni-logo { width: 60px; margin-bottom: 15px; }
+  
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+}

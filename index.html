@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Aggelos Ladas - CV</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="fav.png" />
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 0.8s ease-in;
+        }
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header>
+            <h1>Aggelos Ladas</h1>
+            <p class="subtitle">Computer and Software Enthusiast • Strong Systems and Application Development Background</p>
+        </header>
+
+        <section class="section">
+            <h2>Profile</h2>
+            <p>
+                Informatics and Computer Engineer with 4+ years of experience in various technologies ranging from Front-end, Back-end, Android Development, Database Management, Old & New Technologies, several programming languages and frameworks and DevOps Engineering tools
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Contact</h2>
+            <ul>
+                <li><strong>Email:</strong> aggelosladas1313@gmail.com</li>
+                <li><strong>Phone:</strong> (+30) 6940403824</li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aggelos-ladas-9057b1196/" target="_blank">linkedin.com/in/aggelos-ladas</a></li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            <div class="education-entry">
+                <div class="edu-text">
+                    <p class="edu-school">University of West Attica</p>
+                    <p class="edu-degree">Master’s Degree in Informatics and Computer Engineering</p>
+                    <p class="edu-dates">2022 – Present</p>
+                </div>
+                <div class="edu-logo-wrap">
+                    <img src="logo.png" alt="University Logo" class="uni-logo">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Projects & Challenges</h2>
+            
+            <div class="project-entry">
+                <div class="project-header">
+                    <h3>Vision-to-RAG Prompt Builder for Energy Billing</h3>
+                    <a href="https://github.com/ntua-el21432/ai-hackathon-ppc" target="_blank" class="github-link">
+                        <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.46-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+                <p class="project-subtitle">Special Challenge by ΔΕΗ/PPC | AI Hackathon by ACE 2026</p>
+                <p>Developed an AI system using OCR and Retrieval-Augmented Generation + Hybrid Solutions to analyze energy bills and provide automated insights for the ACE AI Hackathon 2026.</p>
+                <ul class="skills project-tech">
+                    <li>Python</li><li>LangChain</li><li>Streamlit</li><li>RAG</li><li>Tesseract OCR</li><li>Azure AI Search</li><li>FastAPI</li>
+                </ul>
+                
+                <button class="cert-toggle-btn" onclick="toggleCert(this)">
+                    <svg height="14" width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    View Certificate
+                </button>
+                <div class="cert-container">
+                    <img src="cert.png" alt="ACE AI Hackathon Certificate" class="cert-image">
+                </div>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-header">
+                    <h3>DiveScore: Mobile Application for Scuba Diving Insights</h3>
+                </div>
+                <p>Project Android mobile platform for scuba diving insights, including a powerful rating algorithm for Scuba Divers.</p>
+                <ul class="skills project-tech">
+                    <li>Jetpack Compose</li><li>Retrofit</li><li>Spring Boot</li><li>Docker</li><li>AWS EC2</li><li>Cloudflare</li>
+                </ul>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-header">
+                    <h3>Full Stack Web Memory Game for VELO</h3>
+                </div>
+                <p>Created an interactive lightweight promotional memory game for an event </p>
+                <ul class="skills project-tech">
+                    <li>C# ASP.NET Web Forms</li><li>JavaScript</li><li>HTML</li><li>CSS</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Technical Skills</h2>
+            <ul class="skills">
+                <li>Spring Boot</li>
+                <li>REST API</li>
+                <li>Kotlin</li>
+                <li>Jetpack Compose</li>
+                <li>Android Studio</li>
+                <li>Retrofit</li>
+                <li>Docker</li>
+                <li>Amazon Web Services</li>
+                <li>Azure</li>
+                <li>Linux</li>
+                <li>Java</li>
+                <li>C#</li>
+                <li>.NET MAUI</li>
+                <li>SQL / SQLite / MySQL</li>
+                <li>Databases & Data Modeling</li>
+                <li>C</li>
+                <li>C++</li>
+                <li>XML / XAML</li>
+                <li>Object-Oriented Programming</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Currently Exploring</h2>
+            <p>
+                Expanding expertise in full-stack development.<br>
+                Building RESTful APIs with <strong>Spring Boot</strong> and connecting them to Android apps using <strong>Retrofit</strong>.<br>
+                Continuing to refine <strong>Kotlin</strong> and <strong>Jetpack Compose</strong> for Android development.
+            </p>
+        </section>
+
+        <footer>
+            <p>© 2026 Aggelos Ladas</p>
+        </footer>
+    </div>
+
+    <script>
+        window.addEventListener("load", function () {
+            document.body.classList.add("loaded");
+        });
+
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Toggle logic for the certificate
+        function toggleCert(btn) {
+            const certContainer = btn.nextElementSibling;
+            certContainer.classList.toggle('show');
+            
+            if (certContainer.classList.contains('show')) {
+                btn.innerHTML = `<svg height="14" width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Hide Certificate`;
+            } else {
+                btn.innerHTML = `<svg height="14" width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> View Certificate`;
+            }
+        }
+    </script>
+</body>
+</html>
